@@ -1,4 +1,4 @@
-# Richard's alfresco-utils
+# Richard's Alfresco Utilities
 
 This repository has various utilities to simplify deploying Alfresco Community
 Edition.
