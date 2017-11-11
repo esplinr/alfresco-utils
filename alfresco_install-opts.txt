@@ -1,0 +1,17 @@
+# This configuration file is for running the installer in unattended mode
+#
+# ./alfresco-community-installer-201704-linux-x64.bin --optionfile ../alfresco_install-opts.txt
+
+mode=unattended
+#Need to install java and openoffice to avoid compatibility problems
+enable-components=javaalfresco,alfrescosolr4,aosmodule,alfrescogoogledocs,libreofficecomponent
+
+disable-components=postgres,alfrescosolr,alfrescowcmqs,alfrescowcmqs
+
+# Install location
+prefix=/opt/alfresco-community
+
+alfresco_admin_password=admin
+
+# Don't install init scripts
+baseunixservice_install_as_service=0
