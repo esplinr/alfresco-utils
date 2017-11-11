@@ -10,6 +10,12 @@ script is easy to modify to use a different directory, filename, or age for each
 log file.
 
 Put the script into /etc/cron.daily
+
+
+Copyright 2017 Alfresco Software
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
 '''
 
 import sys

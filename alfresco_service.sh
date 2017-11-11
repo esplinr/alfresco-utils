@@ -9,6 +9,13 @@
 #
 # chkconfig: 2345 80 30 
 # description: Alfresco Community
+#
+#
+# Copyright 2017 Alfresco Software
+# 
+# This product includes software developed at
+# The Apache Software Foundation (http://www.apache.org/).
+
 
 RETVAL=0
 
