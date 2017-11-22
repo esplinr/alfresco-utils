@@ -121,8 +121,8 @@ def clean_logs(log_dir, age_days, glob_string, log_date_func):
 
 def main(arg_list): #not currently using the arg_list
     # Script-style consants so we don't have to mess with options
-#    ALF_LOG_DIR="/opt/alfresco-community/tomcat/logs"
-    ALF_LOG_DIR="/home/system/opt/alfresco-config/logs-sample"
+    ALF_LOG_DIR="/opt/alfresco-community/tomcat/logs"
+#    ALF_LOG_DIR="/home/system/opt/alfresco-config/logs-sample"
 
     if DEBUG:
         print("Log directory: %s" %(ALF_LOG_DIR))
