@@ -1,7 +1,7 @@
 # This configuration file is for running the installer in unattended mode
 # You should change the admin password
 #
-# ./alfresco-community-installer-201704-linux-x64.bin --optionfile ../alfresco_install-opts.txt
+# ./alfresco-community-installer-201704-linux-x64.bin --optionfile ./alfresco_install-opts.txt
 
 mode=unattended
 #Need to install java and openoffice to avoid compatibility problems
