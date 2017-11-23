@@ -1,13 +1,14 @@
 #!/bin/bash
 # Install Alfresco
-# install-alfresco.sh [DB-NAME] [DB-USER] [ALF-DIR] [INSTALLER] [INSTALL_OPTS] [OS_USER]
+# install-alfresco.sh [DB_NAME] [DB_USER] [DB_PASS] [ALF-DIR] [INSTALLER] [INSTALL_OPTS] [OS_USER]
 
 ALF_DB=$1
 ALF_USER=$2
-INSTALL_DIR=$3
-ALF_INSTALLER=$4
-INSTALLER_OPTS=$5
-OS_USER=$6
+DB_PASS=$3
+INSTALL_DIR=$4
+ALF_INSTALLER=$5
+INSTALLER_OPTS=$6
+OS_USER=$7
 
 
 PGHBA_PATH="/var/lib/pgsql/data/pg_hba.conf"
@@ -34,10 +35,11 @@ function check_psql {
 
 function setup_database_user {
   ALF_DB=$1
+  ALF_DB_PASS=$2
   if ! check_psql "\\du" ${ALF_USER}; then
     echo "Creating user"
     su_user postgres "createuser -S -D -R ${ALF_USER}"
-    run_psql_cmd "alter user ${ALF_USER} with password '${ALF_USER}';"
+    run_psql_cmd "alter user ${ALF_USER} with password '${ALF_DB_PASS}';"
   else
     echo "Database user exists"
   fi
@@ -80,9 +82,10 @@ host   ${ALF_DB}    ${ALF_USER}     127.0.0.1/32  md5 "\
 function setup_database {
   ALF_DB=$1
   ALF_USER=$2
+  DB_PASS=$3
   echo "Setting up Database . . ."
   setup_pghba ${ALF_DB} ${ALF_USER}
-  setup_database_user ${ALF_USER}
+  setup_database_user ${ALF_USER} ${DB_PASS}
   if setup_database_db ${ALF_DB} ${ALF_USER}; then
     return 0 # 0=true--db was created
   else
@@ -91,7 +94,7 @@ function setup_database {
 }
 
 
-setup_database ${ALF_DB} ${ALF_USER}
+setup_database ${ALF_DB} ${ALF_USER} ${DB_PASS}
 
 # Create directory
 sudo mkdir ${INSTALL_DIR}
