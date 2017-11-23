@@ -95,9 +95,7 @@ setup_database ${ALF_DB} ${ALF_USER}
 
 # Create directory
 sudo mkdir ${INSTALL_DIR}
-chown -R ${OS_USER} ${INSTALL_DIR}
+sudo chown -R ${OS_USER} ${INSTALL_DIR}
 
 # Run installer as alfresco user with options file
 su_user ${OS_USER} "${ALF_INSTALLER} --optionfile ${INSTALLER_OPTS}"
-
-# Install startup script

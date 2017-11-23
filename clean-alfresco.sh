@@ -40,4 +40,4 @@ fi
 cleanup_database ${ALF_DB} ${ALF_USER}
 
 echo "Deleting directory"
-rm -rf ${INSTALL_DIR}
+sudo rm -rf ${INSTALL_DIR}
