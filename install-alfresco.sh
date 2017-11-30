@@ -102,4 +102,5 @@ sudo mkdir ${INSTALL_DIR}
 sudo chown -R ${OS_USER} ${INSTALL_DIR}
 
 # Run installer as alfresco user with options file
+echo "Running the installer . . ."
 su_user ${OS_USER} "${ALF_INSTALLER} --optionfile ${INSTALLER_OPTS}"
